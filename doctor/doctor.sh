@@ -60,6 +60,14 @@ mkdir -p "$CONF_DIR"
 if [ -f "$CONF" ]; then
   say "config: EXISTS"
   say "config_path: $CONF"
+  # Облако-проверка: код в iCloud/Dropbox/OneDrive ломает git/npm
+  pdir=$(grep -o '"projects_dir"[^,]*' "$CONF" 2>/dev/null | sed 's/.*": *"//; s/"$//')
+  case "$pdir" in
+    *"Mobile Documents"*|*"com~apple~CloudDocs"*|*Dropbox*|*OneDrive*)
+      say "projects_dir_cloud: YES ($pdir) -> git/npm могут не работать, предложи локальную папку" ;;
+    "") say "projects_dir_cloud: unknown" ;;
+    *) say "projects_dir_cloud: NO" ;;
+  esac
 else
   say "config: ABSENT (агент должен создать после интервью)"
   say "config_path: $CONF"

@@ -1,5 +1,5 @@
 {
-  "name": "comandos-bot",
+  "name": "{{PROJECT_SLUG}}",
   "version": "0.1.0",
   "private": true,
   "type": "module",

@@ -37,7 +37,16 @@ else { Write-Output "candidate: NONE" }
 
 Write-Output "--- config ---"
 New-Item -ItemType Directory -Force -Path $confDir | Out-Null
-if (Test-Path $conf) { Write-Output "config: EXISTS"; Write-Output "config_path: $conf" }
+if (Test-Path $conf) {
+  Write-Output "config: EXISTS"; Write-Output "config_path: $conf"
+  try {
+    $pdir = (Get-Content $conf -Raw | ConvertFrom-Json).projects_dir
+    if ($pdir -match "OneDrive|Dropbox|Mobile Documents|CloudDocs") {
+      Write-Output "projects_dir_cloud: YES ($pdir) -> git/npm могут не работать, предложи локальную папку"
+    } elseif (-not $pdir) { Write-Output "projects_dir_cloud: unknown" }
+    else { Write-Output "projects_dir_cloud: NO" }
+  } catch { Write-Output "projects_dir_cloud: unknown" }
+}
 else { Write-Output "config: ABSENT (агент должен создать после интервью)"; Write-Output "config_path: $conf" }
 
 Write-Output "=== END REPORT ==="

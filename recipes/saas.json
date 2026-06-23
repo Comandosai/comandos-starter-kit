@@ -6,13 +6,15 @@
   "post": [
     "cd \"<target>\" && npm install @supabase/supabase-js",
     "если нужны платежи (по ответу из ask) — npm install stripe @stripe/stripe-js",
-    "создать .env.local из needs.env, добавить .env* в .gitignore"
+    "создать .env.local напрямую из needs.env (create-next-app НЕ создаёт .env.example)",
+    "дописать .bkit/ .planning/ .claude/ в сгенерированный .gitignore"
   ],
+  "env_file": ".env.local",
   "needs": {
     "cli": ["node", "git"],
     "mcp": ["supabase"],
     "mcp_env": ["SUPABASE_ACCESS_TOKEN"],
-    "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY", "STRIPE_SECRET_KEY"]
+    "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY", "STRIPE_SECRET_KEY", "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"]
   },
   "ask": [
     "Что делает приложение? Одно предложение.",

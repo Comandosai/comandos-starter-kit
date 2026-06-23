@@ -5,8 +5,10 @@
   "scaffold_cmd": "npx create-next-app@latest \"<target>\" --ts --tailwind --app --eslint --use-npm --no-import-alias",
   "post": [
     "cd \"<target>\" && npm install @telegram-apps/sdk @supabase/supabase-js",
-    "инициализировать Telegram SDK на клиенте, настроить домен в @BotFather (/setdomain)"
+    "инициализировать Telegram SDK на клиенте, настроить домен в @BotFather (/setdomain)",
+    "создать .env.local напрямую из needs.env; дописать .bkit/ .planning/ .claude/ в .gitignore"
   ],
+  "env_file": ".env.local",
   "needs": {
     "cli": ["node", "git"],
     "mcp": [],

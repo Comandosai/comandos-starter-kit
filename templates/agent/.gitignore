@@ -2,5 +2,11 @@
 .env.*
 !.env.example
 node_modules/
+dist/
+build/
+# мусор AI-плагинов
+.bkit/
+.planning/
+.claude/
 *.log
 .DS_Store
