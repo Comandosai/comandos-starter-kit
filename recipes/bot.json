@@ -1,0 +1,16 @@
+{
+  "name": "Telegram-бот",
+  "branch": "B",
+  "stack": "grammY (TypeScript)",
+  "template": "templates/bot",
+  "needs": {
+    "cli": ["node", "git"],
+    "mcp": [],
+    "env": ["TELEGRAM_BOT_TOKEN"]
+  },
+  "ask": [
+    "Как назвать бота?",
+    "Что он делает? (принимает заявки, отвечает на вопросы, ...)",
+    "Нужна ли база данных для хранения? (да/нет)"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Micro-SaaS / веб-приложение",
+  "branch": "B",
+  "stack": "Next.js + Supabase + Stripe + Tailwind",
+  "template": "templates/saas",
+  "needs": {
+    "cli": ["node", "git"],
+    "mcp": ["supabase"],
+    "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY", "STRIPE_SECRET_KEY"]
+  },
+  "ask": [
+    "Что делает приложение? Одно предложение.",
+    "Нужен ли вход пользователей? (да/нет)",
+    "Нужны ли платежи/подписка? (да/нет)"
+  ]
+}

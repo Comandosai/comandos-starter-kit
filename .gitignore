@@ -1,0 +1,21 @@
+# секреты
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# зависимости / сборка
+node_modules/
+dist/
+.next/
+build/
+
+# служебное AI
+.claude/
+.planning/
+.DS_Store
+
+# временное
+*.log
+tmp/
