@@ -3,6 +3,12 @@
 Минимальный агент на **Claude Agent SDK** (TypeScript).
 
 ## Запуск
+Если проект собрал агент-стартер — ключ уже в `.env`, просто:
+```bash
+npm start "твоя задача"
+```
+
+Если запускаешь с нуля вручную:
 ```bash
 npm install
 cp .env.example .env      # впиши ANTHROPIC_API_KEY

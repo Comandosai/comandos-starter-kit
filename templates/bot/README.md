@@ -3,6 +3,12 @@
 Минимальный бот на **grammY** (TypeScript).
 
 ## Запуск
+Если проект собрал агент-стартер — токен уже в `.env`, просто:
+```bash
+npm start
+```
+
+Если запускаешь с нуля вручную:
 ```bash
 npm install
 cp .env.example .env      # впиши TELEGRAM_BOT_TOKEN (от @BotFather)
