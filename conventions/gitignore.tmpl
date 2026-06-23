@@ -1,0 +1,32 @@
+# Зависимости
+node_modules/
+
+# Секреты — НИКОГДА не коммитить
+.env
+.env.*
+!.env.example
+
+# Сборка
+dist/
+build/
+.next/
+*.tsbuildinfo
+
+# Служебные файлы AI-плагинов (не часть проекта)
+.bkit/
+.planning/
+.claude/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Системное / IDE
+.DS_Store
+.idea/
+*.swp
+
+# Тяжёлые медиа (хранить в базе знаний, не в git)
+*.mp4
+*.mov
+*.zip
