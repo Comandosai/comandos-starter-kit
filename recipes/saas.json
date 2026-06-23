@@ -2,10 +2,16 @@
   "name": "Micro-SaaS / веб-приложение",
   "branch": "B",
   "stack": "Next.js + Supabase + Stripe + Tailwind",
-  "template": "templates/saas",
+  "scaffold_cmd": "npx create-next-app@latest \"<target>\" --ts --tailwind --app --eslint --use-npm --no-import-alias",
+  "post": [
+    "cd \"<target>\" && npm install @supabase/supabase-js",
+    "если нужны платежи (по ответу из ask) — npm install stripe @stripe/stripe-js",
+    "создать .env.local из needs.env, добавить .env* в .gitignore"
+  ],
   "needs": {
     "cli": ["node", "git"],
     "mcp": ["supabase"],
+    "mcp_env": ["SUPABASE_ACCESS_TOKEN"],
     "env": ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY", "STRIPE_SECRET_KEY"]
   },
   "ask": [

@@ -1,0 +1,20 @@
+{
+  "name": "Telegram Mini App",
+  "branch": "B",
+  "stack": "Next.js + Telegram Mini App SDK + Supabase",
+  "scaffold_cmd": "npx create-next-app@latest \"<target>\" --ts --tailwind --app --eslint --use-npm --no-import-alias",
+  "post": [
+    "cd \"<target>\" && npm install @telegram-apps/sdk @supabase/supabase-js",
+    "инициализировать Telegram SDK на клиенте, настроить домен в @BotFather (/setdomain)"
+  ],
+  "needs": {
+    "cli": ["node", "git"],
+    "mcp": [],
+    "env": ["TELEGRAM_BOT_TOKEN", "NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY"]
+  },
+  "ask": [
+    "Что делает мини-апп?",
+    "К какому боту привязываем? (есть токен от @BotFather?)",
+    "Нужно ли хранение данных пользователей?"
+  ]
+}

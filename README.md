@@ -12,8 +12,9 @@ OpenAI Codex, Google Antigravity**.
 ```
 Установи и запусти COMANDOS Starter Kit.
 1) git clone https://github.com/Comandosai/comandos-starter-kit ~/.comandos-kit
-   (если есть — cd ~/.comandos-kit && git pull)
-2) Прочитай ~/.comandos-kit/bootstrap.md и выполни по шагам.
+   (Windows PowerShell: git clone https://github.com/Comandosai/comandos-starter-kit "$HOME\.comandos-kit")
+   (если есть — git -C ~/.comandos-kit pull)
+2) Прочитай bootstrap.md в этой папке и выполни по шагам.
 Общайся по-русски, просто. Я не программист — делай всё за меня.
 ```
 

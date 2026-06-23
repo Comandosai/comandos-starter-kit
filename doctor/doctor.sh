@@ -21,30 +21,38 @@ for tool in node npm npx git; do
   if have "$tool"; then
     say "$tool: OK ($($tool --version 2>&1 | head -1))"
   else
-    say "$tool: MISSING"
+    say "$tool: MISSING -> установить: см. lib/mcp-install.md (macOS: nodejs.org .pkg или brew; Windows: nodejs.org)"
   fi
 done
 
 # --- 2. Определение IDE/среды ---
 say "--- ide ---"
-[ -d "$HOME/.claude" ] && say "claude-code: detected" || say "claude-code: -"
-[ -d "$HOME/.codex" ]  && say "codex: detected"       || say "codex: -"
-[ -d "$HOME/.antigravity" ] || [ -d "$HOME/.config/antigravity" ] && say "antigravity: detected" || say "antigravity: -"
+if [ -d "$HOME/.claude" ]; then say "claude-code: detected"; else say "claude-code: -"; fi
+if [ -d "$HOME/.codex" ]; then say "codex: detected"; else say "codex: -"; fi
+if [ -d "$HOME/.antigravity" ] || [ -d "$HOME/.config/antigravity" ] || [ -d "$HOME/.gemini" ]; then
+  say "antigravity: detected"
+else
+  say "antigravity: -"
+fi
 
 # --- 3. Поиск базы знаний (vault) ---
 say "--- knowledge_base candidates ---"
-# ищем папки .obsidian не глубже 4 уровней в типичных местах
+# ищем папки .obsidian не глубже 4 уровней в типичных местах (с дедупликацией)
 SEARCH_ROOTS=("$HOME" "$HOME/Documents" "$HOME/Comandos.ai" "$HOME/Dropbox")
-found_any=0
+tmp_cand="$(mktemp)"
 for root in "${SEARCH_ROOTS[@]}"; do
   [ -d "$root" ] || continue
-  while IFS= read -r vault; do
-    [ -z "$vault" ] && continue
-    say "candidate: $(dirname "$vault")"
-    found_any=1
-  done < <(find "$root" -maxdepth 4 -type d -name ".obsidian" 2>/dev/null | head -10)
+  find "$root" -maxdepth 4 \( -name node_modules -o -name Library -o -name .git \) -prune -o \
+       -type d -name ".obsidian" -print 2>/dev/null | while IFS= read -r vault; do
+    dirname "$vault"
+  done >> "$tmp_cand"
 done
-[ "$found_any" -eq 0 ] && say "candidate: NONE"
+if [ -s "$tmp_cand" ]; then
+  sort -u "$tmp_cand" | head -10 | while IFS= read -r c; do say "candidate: $c"; done
+else
+  say "candidate: NONE"
+fi
+rm -f "$tmp_cand"
 
 # --- 4. Глобальный конфиг ---
 say "--- config ---"

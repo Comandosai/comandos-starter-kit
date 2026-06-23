@@ -3,7 +3,14 @@
   "branch": "A",
   "action": "mcp",
   "mcp_tool": "veo3_generate_video",
-  "needs": { "cli": [], "mcp": ["kie-ai"], "env": [] },
+  "tool_fullname_hint": "mcp__<server>__<mcp_tool>, server берётся из needs.mcp[0] (kie-ai)",
+  "async_pipeline": [
+    "mcp__kie-ai__veo3_generate_video → вернёт task_id",
+    "mcp__kie-ai__wait_for_task (или get_task_status) → дождаться готовности",
+    "при необходимости 1080p: mcp__kie-ai__veo3_get_1080p_video",
+    "скачать файл, положить рядом с проектом / в _artifacts (тяжёлое — по правилам базы знаний)"
+  ],
+  "needs": { "cli": [], "mcp": ["kie-ai"], "env": ["KIE_API_KEY"] },
   "ask": [
     "Опиши сцену/идею ролика.",
     "Длительность и формат (вертикальное/горизонтальное)?",
