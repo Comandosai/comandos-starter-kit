@@ -10,6 +10,7 @@
     "дописать .bkit/ .planning/ .claude/ в сгенерированный .gitignore"
   ],
   "env_file": ".env.local",
+  "env_conditional": "STRIPE_SECRET_KEY и NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY добавляй в .env.local только если в интервью платежи=да; иначе не включай (чистый .env.local)",
   "needs": {
     "cli": ["node", "git"],
     "mcp": ["supabase"],

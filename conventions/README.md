@@ -9,8 +9,8 @@
 | `.agent/rules/project.md` | `antigravity-rules.md.tmpl` | правила для Antigravity |
 | `PROJECT-BRIEF.md` | `PROJECT-BRIEF.md.tmpl` | бизнес-контекст (по интервью) |
 | `.gitignore` | `gitignore.tmpl` | секреты/мусор не в git (вкл. .bkit/.planning) |
-| `.env` | создаётся из `.env.example` шаблона | реальные ключи (НЕ коммитится) |
-| `.env.example` | из шаблона рецепта | список нужных ключей |
+| `.env` / `.env.local` | template-ветки: из `.env.example`. scaffold-ветки (Next.js): создаётся напрямую из `needs.env` (имя из `recipe.env_file`, обычно `.env.local`) | реальные ключи (НЕ коммитится) |
+| `.env.example` | только template-ветки | список нужных ключей (у scaffold его нет) |
 
 **Подставь все `{{ПЛЕЙСХОЛДЕРЫ}}`** значениями из интервью и config.
 Все три IDE-файла (`AGENTS.md`, `CLAUDE.md`, `.agent/rules/`) обязательны —

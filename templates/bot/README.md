@@ -11,8 +11,8 @@ npm start
 Если запускаешь с нуля вручную:
 ```bash
 npm install
-cp .env.example .env      # впиши TELEGRAM_BOT_TOKEN (от @BotFather)
-npm start
+cp .env.example .env      # macOS/Linux. Windows PowerShell: Copy-Item .env.example .env
+npm start                 # впиши TELEGRAM_BOT_TOKEN (от @BotFather) в .env
 ```
 
 ## Где что
