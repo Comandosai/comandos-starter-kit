@@ -1,0 +1,99 @@
+schema: comandos-skill-manifest/v1
+slug: comandos-starter-kit
+name: COMANDOS Starter Kit
+version: 0.4.2
+released_at: 2026-06-24
+
+card:
+  tagline: |
+    Один промпт — и у тебя готовый каркас проекта (сайт, бот, цифровой сотрудник, SaaS) с настроенным окружением и привязкой к базе знаний.
+  description: |
+    AI-native стартер для резидентов COMANDOS. Вставляешь один промпт — и агент сам
+    проверяет окружение, находит твою базу знаний, расспрашивает что нужно сделать,
+    подбирает рецепт и разворачивает рабочий костяк проекта: структура папок, зависимости,
+    конфиги, рабочий .env, тесты и скрипты качества. Дальше ты открываешь новый чат прямо
+    в папке проекта и наполняешь его — агент уже в контексте.
+
+    Не требует ключей и базы знаний заранее: спрашивает только то, без чего конкретный
+    рецепт бессмыслен, и кладёт ключи в локальный .env проекта. Работает одинаково в трёх
+    средах — Claude Code, OpenAI Codex и Google Antigravity. Рассчитан на не-программиста:
+    никаких стектрейсов, всё делается за тебя и объясняется простым языком.
+  category: Разработка
+  icon: 🚀
+  price: free
+  bullets:
+    - Из одного промпта разворачивает каркас — сайт, Telegram-бот, цифровой сотрудник, SaaS или mini-app
+    - Проверяет окружение (Node, git, IDE) и сам ставит недостающее
+    - Не требует ключей и базы знаний заранее — спрашивает только необходимое
+    - Кладёт правила сразу для трёх сред — Claude Code, OpenAI Codex, Google Antigravity
+    - Прогоняет проверки (типы, линт, тесты, smoke) и не говорит «готово», пока не зелёное
+    - Защищает от облачных папок (iCloud/Dropbox), где ломаются git и npm
+    - Привязывает проект к твоей базе знаний (Второй мозг), если она есть
+    - Объясняет каждый шаг простым языком — для не-программиста
+  tags:
+    - scaffolding
+    - typescript
+    - astro
+    - nextjs
+    - telegram-bot
+    - ai-agents
+    - claude-code
+    - multiplatform
+  time:
+    typical: 5-15 минут
+
+author:
+  name: COMANDOS
+  github: Comandosai
+  url: https://comandos.ai
+
+links:
+  github: https://github.com/Comandosai/comandos-starter-kit
+
+requirements:
+  - name: Node.js
+    version: ">=22.7"
+    install_url: https://nodejs.org
+  - name: git
+    install_url: https://git-scm.com
+  - name: AI-среда (одна из)
+    version: Claude Code / OpenAI Codex / Google Antigravity
+
+install:
+  - type: claude-code-skill
+install_recommended: global
+
+platforms:
+  - { id: claude-code, name: Claude Code }
+  - { id: codex, name: OpenAI Codex }
+  - { id: antigravity, name: Google Antigravity }
+
+stacks_supported:
+  - astro
+  - nextjs
+  - typescript
+  - grammy
+  - claude-agent-sdk
+
+target_audience:
+  - non-developers
+  - indie-hackers
+  - small-business
+  - developers
+
+capabilities:
+  - 'Создание каркаса проекта из одного промпта'
+  - 'Автопроверка и настройка окружения (Node, git, MCP)'
+  - 'Мультиплатформенность: Claude Code, OpenAI Codex, Google Antigravity'
+  - 'Привязка проекта к базе знаний (Второй мозг)'
+  - 'Гейт качества: typecheck, lint, test, smoke перед словом «готово»'
+  - 'Защита от облачных папок, ломающих git и npm'
+
+triggers:
+  ru:
+    - 'установи и запусти COMANDOS Starter Kit'
+    - 'создай новый проект'
+    - 'собери мне бота / сайт / агента'
+    - 'разверни приложение с нуля'
+    - 'подготовь проект перед стартом'
+    - 'доработай мой проект'
