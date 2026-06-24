@@ -4,8 +4,9 @@
  * Запуск: npm install && npm start
  */
 import { Bot } from "grammy";
+import { optionalEnv } from "./lib/env.ts";
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
+const token = optionalEnv("TELEGRAM_BOT_TOKEN");
 if (!token) {
   console.error("Нет TELEGRAM_BOT_TOKEN. Получи токен у @BotFather и впиши в .env");
   process.exit(1);
@@ -14,14 +15,10 @@ if (!token) {
 const bot = new Bot(token);
 
 // /start
-bot.command("start", (ctx) =>
-  ctx.reply("Привет! Я {{PROJECT_NAME}}. {{BOT_PURPOSE}}")
-);
+bot.command("start", (ctx) => ctx.reply("Привет! Я {{PROJECT_NAME}}. {{BOT_PURPOSE}}"));
 
 // /help
-bot.command("help", (ctx) =>
-  ctx.reply("Напиши мне сообщение — я отвечу. Команды: /start, /help")
-);
+bot.command("help", (ctx) => ctx.reply("Напиши мне сообщение — я отвечу. Команды: /start, /help"));
 
 // эхо на любой текст (замени на свою логику)
 bot.on("message:text", (ctx) => ctx.reply(`Ты написал: ${ctx.message.text}`));
